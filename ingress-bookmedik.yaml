@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bookmedik
+  labels:
+    app: bookmedik
+    type: frontend
+spec:
+  rules:
+  - host: www.javier-bookmedik.org
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: bookmedik
+            port:
+              name: http-server
